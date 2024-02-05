@@ -1,6 +1,6 @@
 artifacts:
   stackoverflow-dataset:
-    path: data/data.xml
+    path: data/raw/data.xml
     type: dataset
     desc: Initial XML StackOverflow dataset (raw data)
   text-classification:
@@ -13,41 +13,42 @@ artifacts:
       - stackoverflow
 stages:
   prepare:
-    cmd: python src/prepare.py data/data.xml
+    cmd: python src/prepare.py data/raw/data.xml
     deps:
-      - data/data.xml
+      - data/raw/data.xml
       - src/prepare.py
     params:
       - prepare.seed
       - prepare.split
     outs:
-      - data/prepared
+      - data/interim/train.tsv
+      - data/interim/test.tsv
   featurize:
-    cmd: python src/featurization.py data/prepared data/features
+    cmd: python src/featurization.py data/interim data/processed/features
     deps:
-      - data/prepared
+      - data/interim
       - src/featurization.py
     params:
       - featurize.max_features
       - featurize.ngrams
     outs:
-      - data/features
+      - data/processed/features
   train:
-    cmd: python src/train.py data/features model.pkl
+    cmd: python src/train.py data/processed/features models/model.pkl
     deps:
-      - data/features
+      - data/processed/features
       - src/train.py
     params:
       - train.min_split
       - train.n_est
       - train.seed
     outs:
-      - model.pkl
+      - models/model.pkl
   evaluate:
-    cmd: python src/evaluate.py model.pkl data/features
+    cmd: python src/evaluate.py models/model.pkl data/processed/features
     deps:
-      - data/features
-      - model.pkl
+      - data/processed/features
+      - models/model.pkl
       - src/evaluate.py
     outs:
       - eval

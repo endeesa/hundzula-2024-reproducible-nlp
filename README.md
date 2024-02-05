@@ -8,6 +8,11 @@
 # Pre-requisites
 
 - [Ubuntu](https://ubuntu.com/download) - This example uses Ubuntu 20.04 LTS. You can use any other OS, but you may need to modify the installation commands accordingly.
+- **Environment variables**: You need to set the following environment variables:
+    ```bash
+    export COMET_API_KEY="your-comet"
+    export AZURE_STORAGE_CONNECTION_STRING="your-central-dvc-data-storage-auth"
+    ```
 
 <br/>
 
@@ -42,6 +47,10 @@ dvc repro
 - For more on DVC, see the [DVC documentation](https://dvc.org/doc)
 
 <br/>
+
+
+## CO
+
 
 ## Project Organization
 
