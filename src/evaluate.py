@@ -78,7 +78,7 @@ def save_importance_plot(live, model, feature_names):
 
 
 def main():
-    EVAL_PATH = "eval"
+    EVAL_PATH = "reports"
 
     if len(sys.argv) != 3:
         sys.stderr.write("Arguments error. Usage:\n")
