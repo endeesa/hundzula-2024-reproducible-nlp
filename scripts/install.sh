@@ -4,6 +4,9 @@ set -e
 # Install common os dependencies required for data science projects
 sudo apt-get update -y
 
+# Install unzip
+sudo apt-get install -y unzip
+
 # Install miniconda(https://docs.conda.io/en/latest/miniconda.html)
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b
