@@ -5,7 +5,7 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = mungana-training-assets
+BUCKET = mungana-training-assets/hundzula-2024-reproducible-nlp
 PROFILE = default
 PROJECT_NAME = hundzula-2024-reproducible-nlp
 PYTHON_INTERPRETER = python3
@@ -19,6 +19,11 @@ endif
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
+
+## Convert poetry.lock to requirements.txt
+freeze:
+	poetry export -f requirements.txt --output requirements.txt --without-hashes
+
 
 ## Install Python Dependencies
 requirements: test_environment
