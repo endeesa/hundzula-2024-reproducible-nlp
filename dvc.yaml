@@ -53,7 +53,7 @@ stages:
     outs:
       - reports
 metrics:
-  - reports/metrics/metrics.json
+  - reports/metrics.json
 plots:
   - ROC:
       template: simple
