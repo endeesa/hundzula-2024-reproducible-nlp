@@ -1,0 +1,5 @@
+outs:
+- md5: 1538f052139e47a74ac9c99ad80df295
+  size: 215934
+  hash: md5
+  path: kaggle-spam-collection-data.zip
