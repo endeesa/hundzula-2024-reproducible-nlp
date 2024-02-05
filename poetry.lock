@@ -1401,6 +1401,44 @@ docs = ["mkdocs (==1.3.1)", "mkdocs-gen-files (==0.3.5)", "mkdocs-material (==8.
 tests = ["celery-types (==0.15.0)", "flaky (==3.7.0)", "mypy (==0.971)", "pylint (==2.15.0)", "pytest (==7.2.0)", "pytest-celery", "pytest-cov (==3.0.0)", "pytest-mock (==3.8.2)", "pytest-sugar (==0.9.6)", "pytest-test-utils (>=0.0.6)"]
 
 [[package]]
+name = "dvclive"
+version = "3.41.1"
+description = "Experiments logger for ML projects."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "dvclive-3.41.1-py3-none-any.whl", hash = "sha256:e9d3bd65e1f64ba2d5553621ff6532539297bd8434b8553667b4fdd9bc2f4f87"},
+    {file = "dvclive-3.41.1.tar.gz", hash = "sha256:6fc785ed9c4f52a9ec309da91bf82bb34dbf855a6947fe86d2c2b527454ffb32"},
+]
+
+[package.dependencies]
+dvc = ">=3.33.3"
+dvc-render = ">=1.0.0,<2"
+dvc-studio-client = ">=0.17.1,<1"
+funcy = "*"
+gto = "*"
+"ruamel.yaml" = "*"
+scmrepo = "*"
+
+[package.extras]
+all = ["dvclive[catalyst,fastai,huggingface,image,lgbm,lightning,markdown,mmcv,optuna,plots,tf,xgb]"]
+catalyst = ["catalyst (>22)"]
+dev = ["dvclive[all,tests]", "mypy (>=1.1.1)", "types-PyYAML"]
+fastai = ["fastai"]
+huggingface = ["datasets", "transformers"]
+image = ["numpy", "pillow"]
+lgbm = ["lightgbm"]
+lightning = ["jsonargparse[signatures] (>=4.26.1)", "lightning (>=2.0)", "torch"]
+markdown = ["matplotlib"]
+mmcv = ["mmcv"]
+optuna = ["optuna"]
+plots = ["numpy", "pandas", "scikit-learn"]
+sklearn = ["scikit-learn"]
+tests = ["dvclive[image,markdown,plots]", "ipython", "pytest (>=7.2.0,<8.0)", "pytest-cov (>=3.0.0,<4.0)", "pytest-mock (>=3.8.2,<4.0)", "pytest-sugar (>=0.9.6,<1.0)"]
+tf = ["tensorflow"]
+xgb = ["xgboost"]
+
+[[package]]
 name = "entrypoints"
 version = "0.4"
 description = "Discover and load entry points from installed packages."
@@ -5278,4 +5316,4 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "28ccd4104da4c84e85d5631659b0e7fbcbd076e5aa6ac59b423c06bdfaf0d8a1"
+content-hash = "e09d50a12962a4716ee1b1a651465cc6e927789d66e1885c5f5155afa1c41910"

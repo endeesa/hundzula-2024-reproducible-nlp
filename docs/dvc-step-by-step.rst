@@ -37,6 +37,7 @@ dvc remote add -d myremote s3://mybucket/data
 
 # push the data to the remote
 dvc push
+# or dvc push -r myremote to specify the remote
 ```
 
 - Note instead of S3 you can also use a local directory e.g. `/tmp/dvcstore`, ssh, google cloud, azure, etc.
@@ -59,3 +60,47 @@ dvc pull
 git checkout <commit-id> <.dvc file>
 dvc checkout
 ```
+
+
+Authenticating with remote storage
+=====
+
+1. S3 
+
+```bash
+dvc remote add -d myremote s3://mybucket
+export AWS_ACCESS_KEY_ID='myid'
+export AWS_SECRET_ACCESS_KEY='mysecret'
+dvc push
+
+# or use awscli
+# your credentials will be automatically used from your default profile
+```
+
+2. Google Cloud
+
+```bash
+dvc remote add -d myremote gs://<mybucket>/<path>
+dvc remote modify --local myremote credentialpath 'path/to/project-XXX.json'
+
+# OR: export GOOGLE_APPLICATION_CREDENTIALS='.../project-XXX.json'
+```
+
+3. Azure
+
+https://dvc.org/doc/user-guide/data-management/remote-storage/azure-blob-storage
+
+```bash
+dvc remote add -d myazremote azure://<mycontainer>/<path>
+dvc remote modify --local myazremote sas_token 'mysecret'
+```
+
+4. Google Drive
+    
+```bash
+dvc remote add mygdriveremote gdrive://0AIac4JZqHhKmUk9PDA/dvcstore
+dvc remote modify myremote gdrive_acknowledge_abuse true
+# user will be prompted to authenticate on first push
+```
+
+5. Self hosted options: ssh, hdfs, etc.
