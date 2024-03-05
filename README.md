@@ -1,6 +1,6 @@
 # Hundzula 2024 - Reproducible NLP experiments with DVC and CometML
 
-- **Author**: Ndamulelo.nemakhavhani@tuks.co.za
+- **Author**: [Ndamulelo Nemakhavhani](https://blog.ndamulelo.co.za/about)
 - Code for my talk on Reproducible NLP experiments with DVC and CometML given at the Hundzula Retreat 2024
 
 <br/>
