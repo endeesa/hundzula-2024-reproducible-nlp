@@ -21,7 +21,7 @@
 - Since this project already has DVC setup, all you need to do is clone the repository and run `dvc pull` to get the data and models.
 
 ```bash
-git clone git@github.com:endeesa/hundzula-2024-reproducible-nlp.git
+git clone git@github.com:ndamulelonemakh/hundzula-2024-reproducible-nlp.git
 cd hundzula-2024-reproducible-nlp
 
 ## Install the dependencies

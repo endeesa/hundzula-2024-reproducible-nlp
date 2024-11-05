@@ -91,3 +91,6 @@ target/
 .mypy_cache/
 /eval
 /reports
+
+# Misc
+data/
